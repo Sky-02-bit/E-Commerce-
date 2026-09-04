@@ -28,7 +28,7 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     photo: {
-        data: Buffer,  // this is a type use to sava any file or image
+        data: Buffer,  // this is a type use to save any file or image
         contentType: String,
     },
     shipping: {

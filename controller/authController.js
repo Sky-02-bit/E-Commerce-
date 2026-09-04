@@ -1,7 +1,8 @@
 // user registration
 import { compare } from "bcrypt";
 import { comparePassword, hashPassword } from "../helper/authHelper.js";
-import userModel from "../models/userModel.js"
+import userModel from "../models/userModel.js";
+import orderModel from "../models/orderModel.js";
 import JWT from 'jsonwebtoken';
 import { token } from "morgan";
 
@@ -207,5 +208,59 @@ export const updateProfileController = async (req, res) => {
             error
         });
 
+    }
+};
+
+// orders 
+export const getOrderController = async (req, res) => {
+    try {
+        const orders = await orderModel.find({ buyer: req.user._id }).populate("products", "-photo").populate("buyer", "name");
+        res.json(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: "Error while getting orders",
+            error
+        })
+    }
+}
+
+// get All-orders 
+export const getAllOrderController = async (req, res) => {
+    try {
+        const orders = await orderModel.find({})
+            .populate("products", "-photo")
+            .populate("buyer", "name")
+            .sort({ createdAt: -1 }); //  fixed here
+        res.json(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: "Error while getting orders",
+            error
+        });
+    }
+};
+
+//order status
+export const orderStatusController = async (req, res) => {
+    try {
+        const { orderId } = req.params;
+        const { status } = req.body;
+        const orders = await orderModel.findByIdAndUpdate(
+            orderId,
+            { status },
+            { new: true }
+        );
+        res.json(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: "Error While Updateing Order",
+            error,
+        });
     }
 };

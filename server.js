@@ -6,6 +6,7 @@ import authRotes from './routes/authRout.js';
 import categoryRouts from './routes/categoryRouts.js'
 import productRouts from './routes/productRouts.js'
 import cors from 'cors';
+
 // Rest object
 const app = express();
 
