@@ -1,0 +1,91 @@
+/* ================ Register Page ==================== */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    flex-direction: column;
+    background-color: #ffdee9;
+    background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+    padding: 20px;
+}
+
+
+.form-container form {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+
+    transition: transform 0.3s ease-in-out;
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-container form:hover {
+    transform: translateY(-10px);
+
+}
+
+.form-container form .title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+
+.form-container form input {
+    width: 100%;
+    /* padding: 12px 10px; */
+    /* margin-bottom: 30px; */
+    border: none;
+    border-bottom: 2px solid #000;
+    border-radius: 0;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-container form input:focus {
+    border-bottom-color: #337ec8;
+
+}
+
+.form-container form button {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #000;
+    color: white;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.form-container form button:hover {
+    border: 1px solid black;
+    background: #000000;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,
+            #434343,
+            #000000);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,
+            #434343,
+            #000000);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.forgot-btn {
+    background-color: #434343a4 !important;
+    border: 0 !important;
+}
+
+.forgot-btn:hover {
+    color: white !important;
+}
